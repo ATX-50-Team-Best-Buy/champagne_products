@@ -1,0 +1,164 @@
+#main-component-container {
+  padding-top: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+#directory {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+#left-column {
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+
+/* TITLE CARD  */
+p {
+  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#product-title {
+  font-size: 22px;
+  padding-top: 5px;
+  margin: 0px;
+}
+.productStats {
+  padding-top: 10px;
+  margin: 0px;
+}
+.star-ratings {
+  margin: 0px;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+/* IMAGES */
+.primary-button {
+  margin-top: 30px;
+  margin: auto
+}
+.primary-image {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  max-height: 600px;
+  max-width: 600px;
+  align-self: center;
+  justify-content: center;
+  margin: auto;
+}
+.thumbnail {
+  display: flex;
+  padding:10px;
+  align-items: center;
+}
+.thumbnail-image {
+  width: 70px;
+  max-height: 70px;
+}
+.thumbnail:hover {
+  border: 1px solid blue;
+}
+
+
+#right-column {
+  padding-top: 20px;
+  padding-right: 30px;
+}
+
+/* PRICING */
+#price {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+#mlc-options{
+  width: 100%;
+}
+.protection {
+  padding-top: 30px;
+  padding-left: 9px;
+  padding-bottom: 10px;
+}
+#protection {
+  margin-top: 20px;
+  padding-bottom:20px;
+  border-bottom: 1px solid black;
+}
+#protection-price {
+  padding: 10px;
+  padding-bottom: 0px;
+  text-align: right;
+  font-weight: bold;
+  font-size: large;
+}
+#learnMore {
+  padding-left: 14px;
+}
+#shield {
+  margin-right: 18px;
+}
+
+/* SHIPPING */
+.shipping{
+  padding-top: 10px;
+}
+#shipping {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+#pickup {
+  color:rgb(48, 136, 0);
+}
+#pickupContainer {
+  margin-bottom: 10px
+}
+
+/* ADD TO CART */
+.addtocart {
+  border-bottom: 1px solid black;
+}
+.added {
+  color: rgb(48, 136, 0);
+}
+#cartbutton {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 30px;
+  background-color: #ffe000;
+  font-weight: bold;
+}
+#bundle {
+  margin-top:20px;
+  margin-bottom: 30px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}
+.offers {
+  padding-top: 20px;
+}
+
+/* MODAL */
+#check {
+  font-size: 40px;
+  color: rgb(48, 136, 0);
+}
+#cart-top {
+  padding-top: 40px;
+  margin-bottom: 50px
+}
+.cart-image {
+  width: 70px;
+  max-height: 70px;
+}
+#checkout {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 30px;
+  background-color: #ffe000;
+  font-weight: bold;
+}
+
+/* css problems? add initials  */
