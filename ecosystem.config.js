@@ -11,7 +11,7 @@ module.exports = {
       ref: 'origin/master',
       repo: 'git@github.com:ATX-50-Team-Best-Buy/champagne_products.git',
       path: '/home/ubuntu/champagne_products',
-      'post-deploy': 'npm install &&  && pm2 startOrRestart ecosystem.config.js'
+      'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js'
     }
   }
 }
