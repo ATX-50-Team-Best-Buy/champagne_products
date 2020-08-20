@@ -80,8 +80,8 @@ const data = [
   },
   {
     uniqueID: 4,
-    name: `Grand Theft Auto V: Premium Edition - PlayStation 4',
-    description: 'The Grand Theft Auto V: Premium Edition is available for PS4 and includes the complete Grand Theft Auto V story experience, the ever-evolving world of Grand Theft Auto Online, and all the existing gameplay upgrades and content, including The Doomsday Heist, Gunrunning, Smuggler's Run, Bikers and much more. You'll also get the Criminal Enterprise starter pack.`,
+    name: `Grand Theft Auto V: Premium Edition - PlayStation 4`,
+    description: `The Grand Theft Auto V: Premium Edition is available for PS4 and includes the complete Grand Theft Auto V story experience, the ever-evolving world of Grand Theft Auto Online, and all the existing gameplay upgrades and content, including The Doomsday Heist, Gunrunning, Smuggler's Run, Bikers and much more. You'll also get the Criminal Enterprise starter pack.`,
     brand: "Rockstar Games",
     department: "Video Games",
     color: "",
@@ -210,7 +210,7 @@ const data = [
         "A: No, it is just the game and the manual. Nothing else special.",
     },
     images: [
-      `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6419/6419920_sd.jpg;maxHeight=640;maxWidth=550,`,
+      `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6419/6419920_sd.jpg;maxHeight=640;maxWidth=550`,
       `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6419/6419920cv13d.jpg;maxHeight=640;maxWidth=550`,
       `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6419/6419920cv14d.jpg;maxHeight=640;maxWidth=550`,
     ],
@@ -894,8 +894,8 @@ const data = [
   {
     uniqueID: 33,
     name: `
-    New Super Mario Bros. U Deluxe - Nintendo Switch',
-    description: 'Join Mario, Luigi, and pals for single-player or multiplayer fun anytime, anywhere. Take on two family-friendly, side-scrolling adventures with up to three friends* as you try to save the Mushroom Kingdom. Includes the New Super Mario Bros. U game and a harder, faster New Super Luigi U game - both of which include Nabbit and Toadette as playable characters.
+    New Super Mario Bros. U Deluxe - Nintendo Switch`,
+    description: `Join Mario, Luigi, and pals for single-player or multiplayer fun anytime, anywhere. Take on two family-friendly, side-scrolling adventures with up to three friends* as you try to save the Mushroom Kingdom. Includes the New Super Mario Bros. U game and a harder, faster New Super Luigi U game - both of which include Nabbit and Toadette as playable characters.
     Two games in one for double the fun. Simple, straightforward controls, new playable characters optimized for younger and less-experienced players, and a wealth of bonus content, such as a Hints gallery and helpful reference videos**, make this a perfect choice for anyone looking to introduce their family to the wonderful world of Mario. All a player needs is one Joy-Con controller, so two people can team up right out of the box. Tackle 164 platforming courses in two main game modes, and enjoy extra replayability with three additional game modes, in which you can also play as a Mii character: Challenges, Boost Rush, and Coin Battle.`,
     brand: "Nintendo",
     department: "Video Games",
