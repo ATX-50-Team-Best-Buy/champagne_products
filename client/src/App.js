@@ -10,6 +10,8 @@ class App extends React.Component {
     this.geekSquad = this.geekSquad.bind(this);
     this.locationClicker = this.locationClicker.bind(this);
 
+    // state is rendered off of the product id in the fetch request
+    // except for the star ratings which come from the ratings and reviews on a mutation observer
     this.state = {
       location: 'South Austin',
       clicked: false,
@@ -35,14 +37,13 @@ class App extends React.Component {
     };
   }
 
-  // live updates main image based on click handler in the thumbnail images
+  // live updates main image based on mouseover handler in the thumbnail images
   thumbnailClicker(e) {
     this.setState({ mainImage: e.target.src })
   }
 
   // updates state when locations in the "change location" modal are clicked
   locationClicker(e) {
-    console.log("clicked", e.target.parentNode.firstChild.nextSibling.innerHTML)
     this.setState({ location: e.target.parentNode.firstChild.nextSibling.innerHTML });
   }
 
@@ -98,6 +99,7 @@ class App extends React.Component {
     observer.observe(targetNode, config);
   }
 
+  // listens to changes of star rating from the ratings component
   watchStarDiv(div) {
     // Select the node that will be observed for mutations
     const targetNode = document.getElementById(`${div}`);

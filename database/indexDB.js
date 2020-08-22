@@ -27,6 +27,7 @@ let productSchema = mongoose.Schema({
 
 let Product = mongoose.model("Product", productSchema);
 
+// saves input object variable to db based on the above schema
 let saveToDB = (model) => {
   var new_product = new Product({
     uniqueID: model.uniqueID,
@@ -54,6 +55,7 @@ let saveToDB = (model) => {
   new_product.save();
 };
 
+// returns product object that matches id variable
 let grabOne = (id, callback) => {
   Product.findOne({ uniqueID: id }).exec(callback);
 }

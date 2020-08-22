@@ -5,7 +5,6 @@ const cors = require("cors");
 const db = require("../database/indexDB")
 const path = require('path')
 
-//requirements
 
 // use
 app.use(express.json());

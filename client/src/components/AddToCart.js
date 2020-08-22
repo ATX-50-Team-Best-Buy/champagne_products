@@ -7,6 +7,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import Modal from '@material-ui/core/Modal';
 import Location from './Location';
 
+//modal postion on screen
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -18,6 +19,7 @@ function getModalStyle() {
   };
 }
 
+// default styles for modal elements
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -33,8 +35,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%"
   }
 }));
-
-
+//=================================
+// functional component starts here
+//=================================
 const AddToCart = (props) => {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
@@ -48,6 +51,7 @@ const AddToCart = (props) => {
     setOpen(false);
   };
 
+  // helper variable to define modal layout
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <p className="added">Added to Cart</p>
@@ -74,6 +78,7 @@ const AddToCart = (props) => {
         </Grid>
       </Grid>
 
+      {/* conditionally renders the second item depending on whether or not the "geek-squad" option is checked */}
       {props.clicked &&
         <Grid
           container spacing={8}

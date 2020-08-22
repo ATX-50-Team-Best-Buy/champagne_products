@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import Modal from '@material-ui/core/Modal';
 
+// modal position on screen
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -16,6 +17,7 @@ function getModalStyle() {
   };
 }
 
+// default styles for modal elements
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -31,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+//=================================
+// functional component starts here
+//=================================
 const Location = (props) => {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
@@ -44,7 +49,7 @@ const Location = (props) => {
     setOpen(false);
   };
 
-
+  // ran out of time to map through this and dynamically render new locations
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <p className="austin-locations">Locations in Your Area</p>
@@ -53,7 +58,7 @@ const Location = (props) => {
         className="location-change"
         direction="row"
         alignItems="center"
-        onClick={props.locataionClicker}
+        onClick={props.locationClicker}
       >
         <Grid item xs={2}>
         </Grid>

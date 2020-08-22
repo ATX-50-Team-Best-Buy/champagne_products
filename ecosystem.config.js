@@ -1,3 +1,5 @@
+// sets up PM2 to create a running build on an amazon EC2 server
+
 module.exports = {
   apps: [{
     name: 'champagne_products',

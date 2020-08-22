@@ -3,7 +3,8 @@ import MediaGallery from "./MediaGallery"
 import Grid from "@material-ui/core/Grid";
 import StarRatings from 'react-star-ratings'
 
-
+// container for positioning the left side of the page
+// contins the product info card and media gallery
 const LeftColumn = (props) => {
   return (
     <div>

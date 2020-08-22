@@ -3,7 +3,8 @@ import Pricing from "./Pricing";
 import AddToCart from "./AddToCart";
 
 
-
+// container for positioning the right side of the page
+// contins the pricing and add to cart subcomponents
 const RightColumn = (props) => {
   return (
     <div>

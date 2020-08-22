@@ -5,7 +5,7 @@ const Thumbnail = (props) => {
     <div className="thumbnail" >
       <img className="thumbnail-image"
         src={props.image}
-        onClick={props.thumbnailClicker}
+        onMouseOver={props.thumbnailClicker}
       />
     </div>
   );

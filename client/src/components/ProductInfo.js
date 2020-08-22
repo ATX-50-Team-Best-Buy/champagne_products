@@ -5,7 +5,7 @@ import RightColumn from './RightColumn';
 
 
 
-
+// container for separation and styling of the two main columns
 const ProductInfo = (props) => {
   return (
     <div>

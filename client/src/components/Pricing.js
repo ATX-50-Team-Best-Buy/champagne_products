@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
 
-
+// container for links, product price, options drop-down menu, and geek-squad checkbox
 const Pricing = (props) => {
 
   return (

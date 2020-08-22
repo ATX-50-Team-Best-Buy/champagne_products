@@ -1,5 +1,6 @@
 import React from "react";
 
+// container for image positioning
 const ImageWrapper = (props) => {
   return (
     <div className="primary-button">

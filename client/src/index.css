@@ -34,14 +34,18 @@ p {
 }
 /* IMAGES */
 .primary-button {
+  display: flex;
   margin-top: 30px;
-  margin: auto
+  margin: auto;
+  min-height: 700px;
+  min-width: 600px;
+  text-align: center;
 }
 .primary-image {
   padding-top: 40px;
   padding-bottom: 20px;
   display: flex;
-  max-height: 600px;
+  max-height: 700px;
   max-width: 600px;
   align-self: center;
   justify-content: center;
@@ -53,7 +57,7 @@ p {
   align-items: center;
 }
 .thumbnail-image {
-  width: 70px;
+  max-width: 70px;
   max-height: 70px;
 }
 .thumbnail:hover {

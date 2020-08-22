@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 
+//traces sitemap through departments and products and displays at the top of the page
 const Directory = (props) => {
   return (
     <div>
