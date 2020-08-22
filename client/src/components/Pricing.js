@@ -41,7 +41,7 @@ const Pricing = (props) => {
           <strong id="protect">Protect your Purchase</strong>
         </Grid>
         <Grid container alignItems="center">
-          <Checkbox color="default" />
+          <Checkbox onClick={props.geekSquad} color="default" />
           <p>2-year Geek Squad Product Replacement</p>
         </Grid>
         <p id="protection-price">$9.99</p>

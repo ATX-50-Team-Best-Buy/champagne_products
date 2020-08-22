@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import CheckIcon from "@material-ui/icons/Check";
 import Modal from '@material-ui/core/Modal';
+import Location from './Location';
 
 function getModalStyle() {
   const top = 50;
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: 800,
-    height: 300,
+    height: 'fit-content',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -72,6 +73,30 @@ const AddToCart = (props) => {
           ${props.price}
         </Grid>
       </Grid>
+
+      {props.clicked &&
+        <Grid
+          container spacing={8}
+          id="geek-squad"
+          direction="row"
+          alignItems="center"
+        >
+          <Grid item xs={1}>
+            <CheckIcon id="check" />
+          </Grid>
+          <Grid item xs={2}>
+          </Grid>
+          <Grid item xs={5}>
+            2-year Geek Squad Replacement
+          </Grid>
+          <Grid item xs={2}>
+          </Grid>
+          <Grid id="geek-price" item xs={2}>
+            $9.99
+          </Grid>
+        </Grid>
+      }
+
       <Button
         type="button"
         id="checkout"
@@ -90,9 +115,9 @@ const AddToCart = (props) => {
     <div>
       <div id="shipping">
         <div id="pickupContainer">
-          <strong id="pickup">Pickup in 1 hour at South Austin</strong>
+          <strong id="pickup">Pickup in 1 hour at {props.location}</strong>
         </div>
-        <a id="location" href="https://www.bestbuy.com/site/the-legend-of-zelda-breath-of-the-wild-nintendo-switch/5721500.p?skuId=5721500">Change Pickup Location</a>
+        <Location locationClicker={props.locationClicker} />
         <Grid
           container
           className="shipping"

@@ -7,11 +7,12 @@ class App extends React.Component {
     super();
     this.thumbnailClicker = this.thumbnailClicker.bind(this);
     this.selectOnChange = this.selectOnChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.geekSquad = this.geekSquad.bind(this);
+    this.locationClicker = this.locationClicker.bind(this);
 
     this.state = {
-      formValue: '',
+      location: 'South Austin',
+      clicked: false,
       option: 'black',
       mainImage: `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900_sd.jpg;maxHeight=640;maxWidth=550`,
       uniqueID: 1,
@@ -26,86 +27,112 @@ class App extends React.Component {
       price: 399.99,
       avgRating: 4.8,
       colors: ["black"],
-      reviews: [],
-      questions: {
-        question: `Q: What's the difference between the PS4 Slim and the PS4 Pro?`,
-        answer: `A: The PS4 Slim outputs games at full 1080p, while the PS4 Pro can output games at up to 4K resolution (2160p). If you have a 4K television, you'll see a noticeable difference in game quality. Note that not all games support 4K, but some will receive updates such as higher framerates, making gameplay smoother.`,
-      },
       images: [
         `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900_sd.jpg;maxHeight=640;maxWidth=550`,
         `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900_rd.jpg;maxHeight=640;maxWidth=550`,
         `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900cv11d.jpg;maxHeight=640;maxWidth=550`,
       ],
-      peopleAlsoBought: [],
-      peopleAlsoViewed: [],
-      recentlyViewed: false,
     };
   }
 
+  // live updates main image based on click handler in the thumbnail images
   thumbnailClicker(e) {
-    console.log(e.target)
     this.setState({ mainImage: e.target.src })
   }
 
+  // updates state when locations in the "change location" modal are clicked
+  locationClicker(e) {
+    console.log("clicked", e.target.parentNode.firstChild.nextSibling.innerHTML)
+    this.setState({ location: e.target.parentNode.firstChild.nextSibling.innerHTML });
+  }
+
+  // listens for changes to the select (drop down) options and updates state
   selectOnChange(e) {
     this.setState({ option: e.target.value })
   }
 
-
-  // FORM STUFF
-  handleChange(event) {
-    this.setState({ formValue: event.target.value });
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-    let id = this.state.formValue
-    fetch(`http://ec2-3-15-234-135.us-east-2.compute.amazonaws.com/api/products/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          uniqueID: data.uniqueID,
-          name: data.name,
-          description: data.description,
-          brand: data.brand,
-          department: data.department,
-          color: data.color,
-          subDept: data.subDept,
-          sku: data.sku,
-          price: data.price,
-          avgRating: data.avgRating,
-          colors: data.colors,
-          reviews: data.reviews,
-          // questions: {
-          //   question: data.questions.question,
-          //   answer: data.questions.answer,
-          // },
-          images: data.images,
-          peopleAlsoBought: data.peopleAlsoBought,
-          peopleAlsoViewed: data.peopleAlsoViewed,
-          recentlyViewed: data.recentlyViewed,
-          mainImage: data.images[0],
-          option: data.colors[0]
-        })
-      })
-    //.catch(console.log("Issue with API"))
-    this.setState({ formValue: '' })
+  // listens for clicking on the geek squad button and toggles state
+  // used in the add to cart modal
+  geekSquad() {
+    this.setState({ clicked: !this.state.clicked })
   }
 
+  // listens for changes from searchbar component and fires fetch to update state
+  watchDiv(div) {
+    // Select the node that will be observed for mutations
+    const targetNode = document.getElementById(`${div}`);
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: false, subtree: false };
+
+    // Callback function to execute when mutations are observed
+    let callback = (mutationsList, observer) => {
+      let id = mutationsList[0].target.className;
+      if (mutationsList[0].attributeName === 'class') {
+        fetch(`http://ec2-3-15-234-135.us-east-2.compute.amazonaws.com/api/products/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            this.setState({
+              uniqueID: data.uniqueID,
+              name: data.name,
+              description: data.description,
+              brand: data.brand,
+              department: data.department,
+              color: data.color,
+              subDept: data.subDept,
+              sku: data.sku,
+              price: data.price,
+              colors: data.colors,
+              images: data.images,
+              mainImage: data.images[0],
+              option: data.colors[0]
+            });
+          })
+      }
+    };
+    callback = callback.bind(this);
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+  }
+
+  watchStarDiv(div) {
+    // Select the node that will be observed for mutations
+    const targetNode = document.getElementById(`${div}`);
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: false, subtree: false };
+
+    // Callback function to execute when mutations are observed
+    let callback = (mutationsList, observer) => {
+      let rating = mutationsList[0].target.className;
+      if (mutationsList[0].attributeName === 'class') {
+        this.setState({ avgRating: Number(rating) })
+      }
+    };
+    callback = callback.bind(this);
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+  }
+
+  componentDidMount() {
+    this.watchDiv("searchbar_app")
+    this.watchStarDiv("Champagne")
+  }
 
 
   render() {
-    const { department, subDept, brand, sku,
-      avgRating, name, images, mainImage, price, colors, option
+    // destructures this.state
+    const { department, subDept, brand, sku, location,
+      avgRating, name, images, mainImage, price, colors, option, clicked
     } = this.state
     return (
       <div id="main-component-container">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Product ID:
-            <input type="text" value={this.state.formValue} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
         <Directory
           department={department}
           subDept={subDept}
@@ -123,6 +150,10 @@ class App extends React.Component {
             options={colors}
             option={option}
             selectOnChange={this.selectOnChange}
+            clicked={clicked}
+            geekSquad={this.geekSquad}
+            locationClicker={this.locationClicker}
+            location={location}
           />
         </div>
       </div>

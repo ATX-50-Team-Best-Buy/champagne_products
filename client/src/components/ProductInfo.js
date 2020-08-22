@@ -29,6 +29,10 @@ const ProductInfo = (props) => {
             option={props.option}
             images={props.images}
             selectOnChange={props.selectOnChange}
+            clicked={props.clicked}
+            geekSquad={props.geekSquad}
+            locationClicker={props.locationClicker}
+            location={props.location}
           />
         </Grid>
       </Grid>

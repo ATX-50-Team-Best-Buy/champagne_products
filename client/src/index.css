@@ -103,6 +103,23 @@ p {
 .shipping{
   padding-top: 10px;
 }
+#location {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.austin-locations {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+.location-change {
+  margin-top: 20px;
+}
+.location-change:hover {
+  border: 1px solid blue;
+}
 #shipping {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -156,7 +173,7 @@ p {
 #checkout {
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-top: 30px;
+  margin-top: 60px;
   background-color: #ffe000;
   font-weight: bold;
 }

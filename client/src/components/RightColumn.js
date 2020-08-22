@@ -12,11 +12,15 @@ const RightColumn = (props) => {
         option={props.option}
         images={props.images}
         selectOnChange={props.selectOnChange}
+        geekSquad={props.geekSquad}
       />
       <AddToCart images={props.images}
         name={props.name}
         price={props.price}
         option={props.option}
+        clicked={props.clicked}
+        locationClicker={props.locationClicker}
+        location={props.location}
       />
     </div>
   );
