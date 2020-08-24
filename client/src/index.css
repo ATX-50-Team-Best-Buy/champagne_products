@@ -80,7 +80,7 @@ p {
   width: 100%;
 }
 .mlc-list-item {
-  padding: 10px 0px;
+  padding: 10px;
 }
 .mlc-list-item:hover {
   background-color: lightgray;
