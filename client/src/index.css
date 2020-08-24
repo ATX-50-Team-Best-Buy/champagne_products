@@ -121,6 +121,9 @@ p {
 .location-change {
   margin-top: 20px;
 }
+#location-button {
+  padding: 4px 10px 4px 10px;
+}
 .location-change:hover {
   border: 1px solid blue;
 }
@@ -149,6 +152,7 @@ p {
   margin-top: 30px;
   background-color: #ffe000;
   font-weight: bold;
+  border-radius: 5px;
 }
 #bundle {
   margin-top:20px;
@@ -156,6 +160,9 @@ p {
   background-color: blue;
   color: white;
   font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
 }
 .offers {
   padding-top: 20px;
