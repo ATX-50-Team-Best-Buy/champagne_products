@@ -28,7 +28,7 @@ const Pricing = (props) => {
           label="Options"
         >
           {props.options.map(option => {
-            return <MenuItem key={option} value={option}>{option}</MenuItem>
+            return <option className="mlc-list-item" key={option} value={option}>{option}</option>
           })}
         </Select>
       </FormControl>

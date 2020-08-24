@@ -79,6 +79,12 @@ p {
 #mlc-options{
   width: 100%;
 }
+.mlc-list-item {
+  padding: 10px 0px;
+}
+.mlc-list-item:hover {
+  background-color: lightgray;
+}
 .protection {
   padding-top: 30px;
   padding-left: 9px;
