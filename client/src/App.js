@@ -13,9 +13,9 @@ class App extends React.Component {
     // state is rendered off of the product id in the fetch request
     // except for the star ratings which come from the ratings and reviews on a mutation observer
     this.state = {
-      location: 'South Austin',
+      location: "South Austin",
       clicked: false,
-      option: 'black',
+      option: "black",
       mainImage: `https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900_sd.jpg;maxHeight=640;maxWidth=550`,
       uniqueID: 1,
       name: "Sony - PlayStation 4 1TB Console - Jet Black",
@@ -39,23 +39,25 @@ class App extends React.Component {
 
   // live updates main image based on mouseover handler in the thumbnail images
   thumbnailClicker(e) {
-    this.setState({ mainImage: e.target.src })
+    this.setState({ mainImage: e.target.src });
   }
 
   // updates state when locations in the "change location" modal are clicked
   locationClicker(e) {
-    this.setState({ location: e.target.parentNode.firstChild.nextSibling.innerHTML });
+    this.setState({
+      location: e.target.parentNode.firstChild.nextSibling.innerHTML,
+    });
   }
 
   // listens for changes to the select (drop down) options and updates state
   selectOnChange(e) {
-    this.setState({ option: e.target.value })
+    this.setState({ option: e.target.value });
   }
 
   // listens for clicking on the geek squad button and toggles state
   // used in the add to cart modal
   geekSquad() {
-    this.setState({ clicked: !this.state.clicked })
+    this.setState({ clicked: !this.state.clicked });
   }
 
   // listens for changes from searchbar component and fires fetch to update state
@@ -69,10 +71,12 @@ class App extends React.Component {
     // Callback function to execute when mutations are observed
     let callback = (mutationsList, observer) => {
       let id = mutationsList[0].target.className;
-      if (mutationsList[0].attributeName === 'class') {
-        fetch(`http://ec2-3-15-234-135.us-east-2.compute.amazonaws.com/api/products/${id}`)
-          .then(response => response.json())
-          .then(data => {
+      if (mutationsList[0].attributeName === "class") {
+        fetch(
+          `http://ec2-18-218-93-73.us-east-2.compute.amazonaws.com/api/products/${id}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
             this.setState({
               uniqueID: data.uniqueID,
               name: data.name,
@@ -86,9 +90,9 @@ class App extends React.Component {
               colors: data.colors,
               images: data.images,
               mainImage: data.images[0],
-              option: data.colors[0]
+              option: data.colors[0],
             });
-          })
+          });
       }
     };
     callback = callback.bind(this);
@@ -110,8 +114,8 @@ class App extends React.Component {
     // Callback function to execute when mutations are observed
     let callback = (mutationsList, observer) => {
       let rating = mutationsList[0].target.className;
-      if (mutationsList[0].attributeName === 'class') {
-        this.setState({ avgRating: Number(rating) })
+      if (mutationsList[0].attributeName === "class") {
+        this.setState({ avgRating: Number(rating) });
       }
     };
     callback = callback.bind(this);
@@ -123,22 +127,30 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.watchDiv("searchbar_app")
-    this.watchStarDiv("Champagne")
+    this.watchDiv("searchbar_app");
+    this.watchStarDiv("Champagne");
   }
-
 
   render() {
     // destructures this.state
-    const { department, subDept, brand, sku, location,
-      avgRating, name, images, mainImage, price, colors, option, clicked
-    } = this.state
+    const {
+      department,
+      subDept,
+      brand,
+      sku,
+      location,
+      avgRating,
+      name,
+      images,
+      mainImage,
+      price,
+      colors,
+      option,
+      clicked,
+    } = this.state;
     return (
       <div id="main-component-container">
-        <Directory
-          department={department}
-          subDept={subDept}
-        />
+        <Directory department={department} subDept={subDept} />
         <div id="main display">
           <ProductInfo
             name={name}
