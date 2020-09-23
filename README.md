@@ -13,7 +13,7 @@ This Application was built by a team of three Full Stack Software Engineers from
 ## Dev Team
 
   * [Danielle Blom]: Header/Searchbar and Footer components
-  * [Mike Champagne]: Product View Component
+  * [Mike Champagne]: Product View, Pricing, and Cart components 
   * [Ryan Walker]: Product Reviews component
 
 
